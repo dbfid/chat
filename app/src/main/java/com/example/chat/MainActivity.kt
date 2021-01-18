@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.chat.Adapter.*
 import com.example.chat.Extensions.afterTextChanged
 import com.example.chat.Extensions.toHHmma
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             tvMessage.text = null
         }
         loadDummyData()
-        CloseKeyboard()
+
 
     }
 
@@ -60,7 +61,9 @@ class MainActivity : AppCompatActivity() {
        chatMessages.add(chatMessage)
        chatAdapter!!.notifyItemInserted(chatMessages.size - 1)
        Handler().postDelayed({recyclerView.scrollToPosition(chatMessages.size - 1)}, 100)
+       CloseKeyboard()
    }
+
 
     private fun loadDummyData(){
         val yesterday: Calendar = Calendar.getInstance()
@@ -73,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         sendMessage(Calendar.getInstance())
     }
 
-    fun CloseKeyboard()
+    fun CloseKeyboard() // 빈 화면을 터치하면 키보드가 내려감, 아이디와 비밀번호를 입력 후 로그인 버튼을 누를 때, 채팅기능에서 메세지를 입력 후 전송 버튼을 누를 때
     {
         var view = this.currentFocus
 
@@ -83,6 +86,13 @@ class MainActivity : AppCompatActivity() {
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
+
+    /*fun glide(args: Array<String>){
+        Glide.with(this)
+                .load("file:///C:/Users/PC/Documents/%EB%84%A4%EC%9D%B4%ED%8A%B8%EC%98%A8%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/%EA%B8%80%EB%9D%BC%EC%9D%B4%EB%93%9C%EB%A1%9C%20%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0/noti_ico_avata_man.webp")
+                .thumbnail(0.1f)
+                .into(imageView) // 이미지 뷰를 가져와서 붙인다고 했을때 그러면 어떤 식으로 변하려나? 이미지를 다른 식으로
+    }*/
 
 
 

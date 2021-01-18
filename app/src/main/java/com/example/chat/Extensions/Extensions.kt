@@ -21,9 +21,9 @@ fun Calendar.toDateLong(): String{
     return dateFormat.format(this.time)
 }
 
-fun Calendar.toHHmma(): String{
-    val dateFormat = SimpleDateFormat("hh:mm a")
-    return dateFormat.format(this.time)
+fun Calendar.toHHmma(): String{ // 이게 그러니까 채팅 칠때 시간을 함수형으로 써두어서 나타낸거잖아 따로 써놔서
+    val dateFormat = SimpleDateFormat("hh:mm a")// 프로퍼티 상수 프로퍼티 명 그다음 앞에껄 프로프티명에 담아주고 그걸 다시 반환 시켜주는데 포멧형식을 time으로 해줬네 ㅇㅎ
+    return dateFormat.format(this.time) // 여기가 반환하는 부분
 }
 
 fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit){

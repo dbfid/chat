@@ -3,6 +3,7 @@ package com.example.chat.Adapter
 import android.content.Context
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.example.chat.Extensions.isToday
 import com.example.chat.Extensions.isYesterday
 import com.example.chat.Extensions.toDateLong
