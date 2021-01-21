@@ -3,13 +3,11 @@ package com.example.chat.Adapter
 import android.content.Context
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.bumptech.glide.Glide
-import com.example.chat.Extensions.isToday
-import com.example.chat.Extensions.isYesterday
-import com.example.chat.Extensions.toDateLong
+import com.example.chat.extensions.isToday
+import com.example.chat.extensions.isYesterday
+import com.example.chat.extensions.toDateLong
 import com.example.chat.R
-import com.example.chat.model.ChatModel
-import sasliderdemo.salmaan.ahmsal.com.flagchatadapter.FlagChatAdapter
+import com.example.chat.data.ChatModel
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -23,7 +21,7 @@ class ChatAdapter(context: Context, private var list: ArrayList<Any>) : FlagChat
 
     override fun chatMessage(position: Int): String{
         return (list[position] as ChatModel).message
-    }
+    } // 형변환을 해줄려고 as 키워드를 사용
 
     override fun messageTime(position: Int): String{
         return (list[position] as ChatModel).time
@@ -44,6 +42,7 @@ class ChatAdapter(context: Context, private var list: ArrayList<Any>) : FlagChat
     override fun isChatModel(position: Int): Boolean{
         return list[position] is ChatModel
     }
+
 
     override fun date(position: Int): String{
         val item= list[position] as Calendar
